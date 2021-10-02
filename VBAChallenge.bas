@@ -58,6 +58,13 @@ For Each InfoSht In ActiveWorkbook.Worksheets
                 Cells(OutputRow, 11).NumberFormat = "0.00%"
                 Cells(OutputRow, 12).Value = Volume
                 
+                'Conditional Color Formatting For Yearly Change Column
+                If (YrlyChng >= 0) Then
+                    Cells(OutputRow, 10).Interior.ColorIndex = 43
+                Else
+                    Cells(OutputRow, 10).Interior.ColorIndex = 3
+                End If
+                                
                 'Counters Reset
                 OutputRow = OutputRow + 1
                 Volume = 0
